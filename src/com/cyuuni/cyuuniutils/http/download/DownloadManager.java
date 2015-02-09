@@ -52,6 +52,10 @@ public class DownloadManager extends Thread {
     public DownloadManager(String rootPath) {
         this.rootPath = rootPath;
         http = new CyHttp();
+        queue = new HttpQueue();
+        urlQueue = new LinkedList<String>();
+        mDownloadinghandlers = new LinkedList<CyHttp>();
+        mPausinghandlers = new LinkedList<CyHttp>();
     }
 
     public static DownloadManager getDownloadManager() {

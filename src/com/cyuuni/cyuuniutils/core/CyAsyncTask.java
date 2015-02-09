@@ -1,6 +1,7 @@
 package com.cyuuni.cyuuniutils.core;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 
@@ -625,6 +626,11 @@ public abstract class CyAsyncTask<Params, Progress, Result> {
     }
 
     private static class InternalHandler extends Handler {
+
+        public InternalHandler() {
+            super(Looper.getMainLooper());
+        }
+
         @SuppressWarnings({"unchecked", "RawUseOfParameterizedType"})
         @Override
         public void handleMessage(Message msg) {
