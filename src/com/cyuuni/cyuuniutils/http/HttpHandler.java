@@ -38,7 +38,7 @@ import org.apache.http.protocol.HttpContext;
 import android.os.SystemClock;
 
 
-public class  HttpHandler  <T> extends CyAsyncTask<Object, Object, Object> implements EntityCallBack{
+public class HttpHandler<T> extends CyAsyncTask<Object, Object, Object> implements EntityCallBack{
 
 	private final AbstractHttpClient client;
 	private final HttpContext context;
@@ -53,7 +53,7 @@ public class  HttpHandler  <T> extends CyAsyncTask<Object, Object, Object> imple
 	private boolean isResume = false; //是否断点续传
 	private String charset;
 
-	public HttpHandler(AbstractHttpClient client, HttpContext context, RequestCallBack<T> callback,String charset) {
+	public HttpHandler(AbstractHttpClient client, HttpContext context, RequestCallBack<T> callback, String charset) {
 		this.client = client;
 		this.context = context;
 		this.callback = callback;

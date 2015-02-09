@@ -27,9 +27,9 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.GZIPInputStream;
 
+import com.cyuuni.cyuuniutils.http.HttpHandler;
 import com.cyuuni.cyuuniutils.http.callback.RequestCallBack;
 import com.cyuuni.cyuuniutils.http.RequestParams;
-import com.cyuuni.cyuuniutils.http.HttpHandler;
 import com.cyuuni.cyuuniutils.http.RetryHandler;
 import com.cyuuni.cyuuniutils.http.SyncRequestHandler;
 
@@ -382,10 +382,10 @@ public class CyHttp {
     }
     
     public HttpHandler<File> download( String url,RequestParams params, String target,boolean isResume, RequestCallBack<File> callback) {
-    	final HttpGet get =  new HttpGet(getUrlWithQueryString(url, params));
-    	HttpHandler<File> handler = new HttpHandler<File>(httpClient, httpContext, callback,charset);
-    	handler.executeOnExecutor(executor,get,target,isResume);
-    	return handler;
+        final HttpGet get = new HttpGet(getUrlWithQueryString(url, params));
+        HttpHandler<File> handler = new HttpHandler<File>(httpClient, httpContext, callback, charset);
+        handler.executeOnExecutor(executor, get, target, isResume);
+        return handler;
     }
 
 

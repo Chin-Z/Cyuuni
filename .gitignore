@@ -1,3 +1,8 @@
 *.swp
+/.idea
+/out
 /src/out
 /src/.idea
+/src/.idea/*
+src/META-INF/
+
